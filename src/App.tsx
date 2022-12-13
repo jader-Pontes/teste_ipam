@@ -1,11 +1,11 @@
-import React,{useState} from 'react';
+import React from 'react';
 
 //Components
 import {Header} from './Components/Header';
 import {Footer} from './Components/Footer';
 
 //routes
-import Routes from './Routes';
+import {Router} from './Routes';
 
 //styled
 import * as C from './styled'
@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <Header/>
         <C.container>
-          <Routes/>
+          <Router/>
         </C.container>
       <Footer/>
     </div>

@@ -7,7 +7,7 @@ import {Home} from './Pages/Home'
 import {Estados} from './Pages/Estados'
 import {Municipios} from "./Pages/Municipios"
 
-export default()=>{
+export const Router=()=>{
   
   return (
     <Routes>

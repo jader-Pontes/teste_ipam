@@ -13,24 +13,20 @@ import {est} from '../../types/index';
 import {stateRequestSelecto} from '../../redux/hooks/stateRequest'
 import { useDispatch } from 'react-redux';
 import {setState} from '../../redux/reducers/stateReducer'
-import { info } from 'console';
 
 
 export const Estados = () => {
 
-  // const [state,setState]=useState([])
   const dispatch=useDispatch();
   const state=stateRequestSelecto((info)=> info.state);
 
-
-  async function pegar(){
-    const value=await getState();
-      dispatch(setState(value))
-  }
-
-    useEffect(() => {
-      pegar()
-    },[])
+  useEffect(() => {
+    async function pegar(){
+      const value=await getState();
+        dispatch(setState(value))
+      }
+    pegar()
+  },[dispatch])
 
     return (
         <C.container>
@@ -39,8 +35,8 @@ export const Estados = () => {
               <C.select>
                 <option value="">Selecione um estado...</option>
                 {state.state.map((estado:est)=>{
-                  const {id,sigla,nome}=estado;
-                  return <option key={id} value={sigla}>{nome}/{estado.regiao.nome}</option>
+                  
+                  return <option key={estado.id} value={estado.sigla}>{estado.nome}</option>
                 })}
               </C.select>
                   
